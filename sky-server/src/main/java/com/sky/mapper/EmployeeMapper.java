@@ -12,6 +12,7 @@ public interface EmployeeMapper {
 
     /**
      * 根据用户名查询员工
+     *
      * @param username
      * @return
      */
@@ -20,6 +21,7 @@ public interface EmployeeMapper {
 
     /**
      * 插入员工数据
+     *
      * @param employee
      */
 
@@ -28,6 +30,7 @@ public interface EmployeeMapper {
 
     /**
      * 分页查询
+     *
      * @param employeePageQueryDTO
      * @return
      */
@@ -35,7 +38,17 @@ public interface EmployeeMapper {
 
     /**
      * 启用禁用员工账号
+     *
      * @param employee
      */
     void update(Employee employee);
+
+    /**
+     * 根据id员工信息
+     *
+     * @param id
+     * @return
+     */
+    @Select("select * from employee where id=#{id}")
+    Employee getById(Long id);
 }
